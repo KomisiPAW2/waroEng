@@ -9,14 +9,14 @@ var RunQuery = database.RunQuery;
 router.all('/', function (req, res, next) {
     var sqlStr = '\
         SELECT *\
-        FROM waroeng.categories';
+        FROM waroeng.waroeng.categories';
 
     RunQuery(sqlStr, function (categories) {
         sqlStr = '\
-            SELECT waroeng.products.*, waroeng.categories.CategoryName, waroeng.categories.CategorySlug\
-            FROM waroeng.products\
-            INNER JOIN waroeng.categories\
-            ON waroeng.products.CategoryID = waroeng.categories.CategoryID\
+            SELECT waroeng.waroeng.products.*, waroeng.waroeng.categories.CategoryName, waroeng.waroeng.categories.CategorySlug\
+            FROM waroeng.waroeng.products\
+            INNER JOIN waroeng.waroeng.categories\
+            ON waroeng.waroeng.products.CategoryID = waroeng.waroeng.categories.CategoryID\
             WHERE Feature = 1';
 
         RunQuery(sqlStr, function (products) {
